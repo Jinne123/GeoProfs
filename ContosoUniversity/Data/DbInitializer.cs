@@ -6,8 +6,10 @@ namespace ContosoUniversity.Data
 {
     public static class DbInitializer
     {
+       
         public static void Initialize(SchoolContext context)
         {
+            users name = new users();
             context.Database.EnsureCreated();
 
             // Look for any userss.
@@ -33,6 +35,20 @@ namespace ContosoUniversity.Data
             }
             context.SaveChanges();
 
+
+            
+            var Absences = new Absence[]
+            {
+                
+                new Absence{id=1,userId=1, StartAbsence = new DateTime(2019, 1, 1), StopAbsence = new DateTime(2019, 1, 2), reason = "I'm sick", status = "Pending"}
+            };
+            foreach (Absence absence in Absences)
+
+            {
+                context.Absences.Add(absence);
+            }
+            context.SaveChanges();
+
             var courses = new Course[]
             {
             new Course{CourseID=1050,Title="Chemistry",Credits=3},
@@ -54,3 +70,4 @@ namespace ContosoUniversity.Data
         }
     }
 }
+    

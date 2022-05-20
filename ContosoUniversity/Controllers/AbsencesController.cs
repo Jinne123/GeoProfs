@@ -54,7 +54,7 @@ namespace ContosoUniversity.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,userId,StartAbsence,StopAbsence,reason")] Absence absence)
+        public async Task<IActionResult> Create([Bind("id,userId,StartAbsence,StopAbsence,reason,status")] Absence absence)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace ContosoUniversity.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int? id, [Bind("id,userId,StartAbsence,StopAbsence,reason")] Absence absence)
+        public async Task<IActionResult> Edit(int? id, [Bind("id,userId,StartAbsence,StopAbsence,reason,status")] Absence absence)
         {
             if (id != absence.id)
             {

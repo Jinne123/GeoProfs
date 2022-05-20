@@ -16,7 +16,7 @@ namespace ContosoUniversity.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Course>().ToTable("Course");
-
+            modelBuilder.Entity<Absence>().ToTable("Absence");
             modelBuilder.Entity<users>().ToTable("users");
         }
     }
