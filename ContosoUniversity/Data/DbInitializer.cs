@@ -15,6 +15,10 @@ namespace ContosoUniversity.Data
             {
                 return;   // DB has been seeded
             }
+            if (context.Absences.Any())
+            {
+                return;   // DB has been seeded
+            }
 
             var users = new users[]
             {
@@ -49,8 +53,17 @@ namespace ContosoUniversity.Data
             }
             context.SaveChanges();
 
-            
-           
+            var absences = new Absence[]
+            {
+            new Absence{id=1050,userId=1050,userss=new users{FirstMidName="among us",LastName="sussy impasta" },StartAbsence=DateTime.Now,StopAbsence=DateTime.Now.AddDays(1),reason="ziek G"},
+            };
+            foreach (Absence a in absences)
+            {
+                context.Absences.Add(a);
+            }
+            context.SaveChanges();
+
+
         }
     }
 }
