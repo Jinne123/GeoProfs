@@ -44,7 +44,7 @@ namespace ContosoUniversity.Data
             var Absences = new Absence[]
             {
                 
-                new Absence{id=1,userId=1, StartAbsence = new DateTime(2019, 1, 1), StopAbsence = new DateTime(2019, 1, 2), reason = "I'm sick", status = "Pending"}
+                new Absence{id=1,userId=1, StartAbsence = new DateTime(2019, 1, 1), StopAbsence = new DateTime(2019, 1, 2), reason = "I'm sick", status = false}
             };
             foreach (Absence absence in Absences)
 
@@ -69,14 +69,7 @@ namespace ContosoUniversity.Data
             }
             context.SaveChanges();
 
-            var absences = new Absence[]
-            {
-            new Absence{id=1050,userId=1050,userss=new users{FirstMidName="among us",LastName="sussy impasta" },StartAbsence=DateTime.Now,StopAbsence=DateTime.Now.AddDays(1),reason="ziek G"},
-            };
-            foreach (Absence a in absences)
-            {
-                context.Absences.Add(a);
-            }
+         
             context.SaveChanges();
 
 
