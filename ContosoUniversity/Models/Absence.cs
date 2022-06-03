@@ -12,7 +12,7 @@ namespace ContosoUniversity.Models
         public DateTime? StartAbsence { get; set; }
         public DateTime? StopAbsence { get; set; }
         public string reason { get; set; }
-        public string status { get; set; }
+        public Boolean status { get; set; }
 
 
 

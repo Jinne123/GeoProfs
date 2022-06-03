@@ -59,6 +59,7 @@ namespace ContosoUniversity.Controllers
             if (ModelState.IsValid)
             {
                 _context.Add(absence);
+                
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
