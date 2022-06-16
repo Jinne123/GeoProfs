@@ -1,6 +1,6 @@
 ﻿namespace ContosoUniversity.Models
 {
-    public class User
+    public class login
     {
         public int UserID { get; set; }
         public string UserName { get; set; }
