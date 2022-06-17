@@ -1,13 +1,38 @@
-﻿@{
-    ViewData["Title"] = "GeoProfs";
+﻿@model ContosoUniversity.Models.login
+
+@{
+    ViewData["Title"] = "Registration";
 }
 
+<h1>Registration</h1>
 
-<div class="register">
-    <input type="email" name="email" id="email" placeholder="Email" />
-	<input type="text" name="first_name" id="first_name" placeholder="First name" />
-    <input type="text" name="last_name" id="last_name" placeholder="Last name" />
-    <input type="password" name="password" id="password" placeholder="Password" />
-    <input type="password" name="secondPassword" id="secondPassword" placeholder="Password confirmation" />
-	<button type="submit" class="btn btn-primary">submit</button>
-</div>  
+<h4></h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label"></label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>      
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

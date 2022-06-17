@@ -79,9 +79,10 @@ namespace ContosoUniversity.Controllers
                 return View();
             }
         }
-        public ActionResult login(string email, string password)
+/*        public ActionResult login(string email, string password)
         {
             string emaildb = (from users in User where email = users.email).FirstOrDefault();
             return;
-        }
+        }*/
+    }
 }
