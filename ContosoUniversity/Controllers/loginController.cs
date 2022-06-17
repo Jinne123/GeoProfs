@@ -15,7 +15,6 @@ namespace ContosoUniversity.Controllers
 {
     public class LoginController : Controller
     {
-
         private readonly SchoolContext _context;
         public LoginController(SchoolContext context)
         {
@@ -26,7 +25,6 @@ namespace ContosoUniversity.Controllers
         {
             return View();
         }
-
 
         // GET: UserController/Details/5
         public ActionResult Details(int id)
@@ -54,6 +52,7 @@ namespace ContosoUniversity.Controllers
                 return View();
             }
         }
+
         public async Task<IActionResult> Login(string UserName, string password)
 
         {
@@ -102,6 +101,5 @@ namespace ContosoUniversity.Controllers
                 return View();
             }
         }
-
     }
 }
