@@ -33,5 +33,25 @@ namespace ContosoUniversity.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        public ActionResult registration()
+
+        {
+
+            return View();
+
+        }
+
+
+
+        [HttpPost]
+
+        public ActionResult registration(users model)
+
+        {
+
+            return View();
+
+        }
     }
 }
