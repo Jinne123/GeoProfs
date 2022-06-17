@@ -8,7 +8,8 @@
 
 	<h1>login</h1>
 	<div class="d-flex justify-content-center">	
-@Html.BeginForm("MyAction", "LoginController"); %>
+
+	<form action="Login" method="post">
 	<input type="email" name = "email" id="email"/>
 	<br />
 	<input type="password" name ="password" id="password"/>
@@ -16,6 +17,7 @@
 	<button type="submit" class="btn btn-primary">
 		submit
 	</button>
-	}	
+	</form>>
+		
 </div>
 

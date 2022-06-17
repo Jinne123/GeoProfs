@@ -6,7 +6,7 @@ namespace ContosoUniversity.Data
 {
     public static class DbInitializer
     {
-       
+
         public static void Initialize(SchoolContext context)
         {
             users name = new users();
@@ -21,6 +21,26 @@ namespace ContosoUniversity.Data
             {
                 return;   // DB has been seeded
             }
+            if (context.Logins.Any())
+            {
+                return;   // DB has been seeded
+            }
+            {
+                
+            }
+            var logins = new Login[]
+           {
+                new Login{UserName="admin",Password="test" }
+           };
+            foreach (Login l in logins)
+            {
+
+
+                context.Logins.Add(l);
+
+            }
+
+            context.SaveChanges();
 
             var users = new users[]
             {
@@ -40,11 +60,12 @@ namespace ContosoUniversity.Data
             context.SaveChanges();
 
 
-            
+
+
             var Absences = new Absence[]
             {
-                
-                new Absence{id=1,userId=1, StartAbsence = new DateTime(2019, 1, 1), StopAbsence = new DateTime(2019, 1, 2), reason = "I'm sick", status = false}
+
+                new Absence{userId=1, StartAbsence = new DateTime(2019, 1, 1), StopAbsence = new DateTime(2019, 1, 2), reason = "I'm sick", status = false}
             };
             foreach (Absence absence in Absences)
 
@@ -68,11 +89,10 @@ namespace ContosoUniversity.Data
                 context.Courses.Add(c);
             }
             context.SaveChanges();
-
-         
-            context.SaveChanges();
+            
 
 
+            
         }
     }
 }
