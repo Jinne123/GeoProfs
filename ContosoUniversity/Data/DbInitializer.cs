@@ -30,7 +30,7 @@ namespace ContosoUniversity.Data
             }
             var logins = new Login[]
            {
-                new Login{UserName="admin",Password="test" }
+                new Login{UserName="admin@gmail.com",Password="test" }
            };
             foreach (Login l in logins)
             {

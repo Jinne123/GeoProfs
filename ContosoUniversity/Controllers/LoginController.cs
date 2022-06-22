@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using System.Web;
+
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ContosoUniversity.Data;
@@ -53,11 +55,31 @@ namespace ContosoUniversity.Controllers
             }
         }
 
+
         public async Task<IActionResult> Login(string UserName, string password)
 
         {
             var login = await _context.Logins.FirstOrDefaultAsync(m => m.UserName == UserName && m.Password == password);
             return View(login);
+        }
+
+        [HttpPost]
+        public ActionResult Autherize(ContosoUniversity.Models.Login loginmodel){
+           
+                var Userdetails = _context.Logins.Where(x => x.UserName == loginmodel.UserName && x.Password == loginmodel.Password).FirstOrDefault();
+            if (Userdetails == null)
+            {
+                loginmodel.loginErrorMe = "wrong username or password";
+                return View("Index", loginmodel);
+            }
+            else
+            {
+                HttpContext.Session.SetString("UserName", loginmodel.UserName);
+                
+                return RedirectToAction("Index", "Home");
+            }
+            
+                
         }
 
         // GET: UserController/Edit/5
