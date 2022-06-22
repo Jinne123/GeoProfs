@@ -27,6 +27,10 @@ namespace ContosoUniversity
         {
             services.AddDbContext<SchoolContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddSession(o =>
+            {
+                o.IdleTimeout = TimeSpan.FromMinutes(30);
+            });
 
             /*services.AddDatabaseDeveloperPageExceptionFilter();*/
 
@@ -52,6 +56,7 @@ namespace ContosoUniversity
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {
