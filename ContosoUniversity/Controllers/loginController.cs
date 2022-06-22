@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,10 +28,6 @@ namespace ContosoUniversity.Controllers
             return View();
         }
 
-       
-
-       
-
         // GET: UserController/Details/5
         public ActionResult Details(int id)
         {
@@ -57,6 +54,15 @@ namespace ContosoUniversity.Controllers
                 return View();
             }
         }
+
+
+        public async Task<IActionResult> Login(string UserName, string password)
+
+        {
+            var login = await _context.Logins.FirstOrDefaultAsync(m => m.UserName == UserName && m.Password == password);
+            return View(login);
+        }
+
         [HttpPost]
         public ActionResult Autherize(ContosoUniversity.Models.Login loginmodel){
            
@@ -74,6 +80,7 @@ namespace ContosoUniversity.Controllers
             }
             
                 
+
         }
 
         // GET: UserController/Edit/5

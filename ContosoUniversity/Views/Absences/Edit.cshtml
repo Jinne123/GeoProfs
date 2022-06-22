@@ -14,11 +14,6 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="id" />
             <div class="form-group">
-                <label asp-for="userId" class="control-label"></label>
-                <input asp-for="userId" class="form-control" />
-                <span asp-validation-for="userId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="StartAbsence" class="control-label"></label>
                 <input asp-for="StartAbsence" class="form-control" />
                 <span asp-validation-for="StartAbsence" class="text-danger"></span>
@@ -33,7 +28,11 @@
                 <input asp-for="reason" class="form-control" />
                 <span asp-validation-for="reason" class="text-danger"></span>
             </div>
-          
+            <div class="form-group">
+                <label asp-for="status" class="control-label"></label>
+                <input asp-for="status" class="form-control" />
+                <span asp-validation-for="status" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
