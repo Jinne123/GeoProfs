@@ -34,7 +34,7 @@ namespace ContosoUniversity.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,UserName,Password")] login login)
+        public async Task<IActionResult> Create([Bind("ID,UserName,Password")] Login login)
         {
             
             if (ModelState.IsValid)
