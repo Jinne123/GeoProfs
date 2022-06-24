@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Extensions;
 
 using System;
 using System.Collections.Generic;
@@ -66,17 +67,25 @@ namespace ContosoUniversity.Controllers
         [HttpPost]
         public ActionResult Autherize(ContosoUniversity.Models.Login loginmodel){
            
-                var Userdetails = _context.Logins.Where(x => x.UserName == loginmodel.UserName && x.Password == loginmodel.Password).FirstOrDefault();
-            if (Userdetails == null)
+            if (loginmodel.UserName == "admin" && loginmodel.Password == "admin")
             {
-                loginmodel.loginErrorMe = "wrong username or password";
-                return View("Index", loginmodel);
+               /* HttpContext.Session.SetString("UserName", loginmodel.UserName);*/
+                TempData["admin"] = true;
+                TempData["User_id"] = 0;
+                return RedirectToAction("Index", "Absences");
+                /*return RedirectToAction("Index", "Home");*/
+            }
+            else if(loginmodel.UserName == "user" && loginmodel.Password == "user")
+            {
+                TempData["admin"] = false;
+                TempData["User_id"] = 1;
+                return RedirectToAction("Index", "Absences");
             }
             else
             {
-                HttpContext.Session.SetString("UserName", loginmodel.UserName);
-                
-                return RedirectToAction("Index", "Home");
+                /*HttpContext.Session.Set("UserName", loginmodel.UserName);*/
+
+                return View();
             }
             
                 
