@@ -73,7 +73,7 @@ namespace ContosoUniversity.Controllers
                 TempData["admin"] = true;
                 TempData["User_id"] = 0;
                 return RedirectToAction("Index", "Absences");
-                /*return RedirectToAction("Index", "Home");*/
+                
             }
             else if(loginmodel.UserName == "user" && loginmodel.Password == "user")
             {
@@ -85,10 +85,10 @@ namespace ContosoUniversity.Controllers
             {
                 /*HttpContext.Session.Set("UserName", loginmodel.UserName);*/
 
-                return View();
+                return RedirectToAction("Index", "login");
             }
-            
-                
+
+
 
         }
 
