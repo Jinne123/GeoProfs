@@ -22,6 +22,7 @@ namespace ContosoUniversity.Controllers
         // GET: Absences
         public async Task<IActionResult> Index()
         {
+            
             return View(await _context.Absences.ToListAsync());
         }
 

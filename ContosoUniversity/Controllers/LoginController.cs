@@ -67,10 +67,19 @@ namespace ContosoUniversity.Controllers
         [HttpPost]
         public ActionResult Autherize(ContosoUniversity.Models.Login loginmodel){
            
-            if (loginmodel.UserName == "admin" && loginmodel.Password == "test")
+            if (loginmodel.UserName == "admin" && loginmodel.Password == "admin")
             {
-                HttpContext.Session.SetString("UserName", loginmodel.UserName);
-                return RedirectToAction("Index", "Home");
+               /* HttpContext.Session.SetString("UserName", loginmodel.UserName);*/
+                TempData["admin"] = true;
+                TempData["User_id"] = 0;
+                return RedirectToAction("Index", "Absences");
+                /*return RedirectToAction("Index", "Home");*/
+            }
+            else if(loginmodel.UserName == "user" && loginmodel.Password == "user")
+            {
+                TempData["admin"] = false;
+                TempData["User_id"] = 1;
+                return RedirectToAction("Index", "Absences");
             }
             else
             {

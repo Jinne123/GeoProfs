@@ -1,115 +1,193 @@
 ﻿@model IEnumerable<ContosoUniversity.Models.Absence>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Leave of absence";
+}
+@{
+    TempData.Keep("admin");
+    TempData.Keep("User_id");
+}
+<h1>Leave of absence</h1>
+<h1>@TempData["name"]</h1>
+
+@if (TempData["User_id"] != null)
+{
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+}
+else
+{
+    <p>Please login first.</p>
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.userId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StartAbsence)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StopAbsence)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.reason)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.status)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-            if (item.status == true)
-            {
+@if (TempData["admin"] != null)
+{
+    @if ((bool)TempData["admin"] == true)
+    {
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.userId)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.StartAbsence)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.StopAbsence)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.reason)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.status)
-                    </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.id">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
-                    </td>
+                    <th>
+                        @Html.DisplayNameFor(model => model.userId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.StartAbsence)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.StopAbsence)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.reason)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.status)
+                    </th>
+                    <th></th>
                 </tr>
-            }
-        }
-    </tbody>
-</table>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    if (item.status == true)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.userId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.StartAbsence)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.StopAbsence)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.reason)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.status)
+                            </td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+        <br />
+
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.userId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.StartAbsence)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.StopAbsence)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.reason)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.status)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    if (item.status == false)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.userId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.StartAbsence)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.StopAbsence)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.reason)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.status)
+                            </td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    }
+}
+
 <br />
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.userId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StartAbsence)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StopAbsence)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.reason)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.status)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-            if (item.status == false)
+@if (TempData["User_id"] != null){
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.userId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StartAbsence)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StopAbsence)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.reason)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.status)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.userId)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.StartAbsence)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.StopAbsence)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.reason)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.status)
-                    </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.id">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
-                    </td>
-                </tr>
+                if ((int)TempData["User_id"] == item.userId)
+                {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.userId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.StartAbsence)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.StopAbsence)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.reason)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.status)
+                            </td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                            </td>
+                        </tr>
+                }
             }
-        }
-    </tbody>
-</table>
+        </tbody>
+    </table>
+    <br />
+}
