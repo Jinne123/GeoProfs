@@ -34,17 +34,17 @@ namespace ContosoUniversity.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,UserName,Password")] Login login)
+        public async Task<IActionResult> Create([Bind("ID,UserName,Password")] Login Login)
         {
             
             if (ModelState.IsValid)
             {
-                _context.Add(login);
+                _context.Add(Login);
 
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(login);
+            return View(Login);
         }
     }
 }

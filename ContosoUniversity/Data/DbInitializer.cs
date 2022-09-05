@@ -28,11 +28,11 @@ namespace ContosoUniversity.Data
             {
                 
             }
-            var logins = new Login[]
+            var Logins = new Login[]
            {
                 new Login{UserName="admin@gmail.com",Password="test" }
            };
-            foreach (Login l in logins)
+            foreach (Login l in Logins)
             {
 
 

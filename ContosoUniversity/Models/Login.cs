@@ -14,6 +14,6 @@ namespace ContosoUniversity.Models
         public string Password { get; set; }
 
 
-        public string loginErrorMe { get; set; }
+        public string LoginErrorMe { get; set; }
     }
 }
