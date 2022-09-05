@@ -60,22 +60,22 @@ namespace ContosoUniversity.Controllers
         public async Task<IActionResult> Login(string UserName, string password)
 
         {
-            var login = await _context.Logins.FirstOrDefaultAsync(m => m.UserName == UserName && m.Password == password);
-            return View(login);
+            var Login = await _context.Logins.FirstOrDefaultAsync(m => m.UserName == UserName && m.Password == password);
+            return View(Login);
         }
 
         [HttpPost]
-        public ActionResult Autherize(ContosoUniversity.Models.Login loginmodel){
+        public ActionResult Autherize(ContosoUniversity.Models.Login Loginmodel){
            
-            if (loginmodel.UserName == "admin" && loginmodel.Password == "admin")
+            if (Loginmodel.UserName == "admin" && Loginmodel.Password == "admin")
             {
-               /* HttpContext.Session.SetString("UserName", loginmodel.UserName);*/
+               /* HttpContext.Session.SetString("UserName", Loginmodel.UserName);*/
                 TempData["admin"] = true;
                 TempData["User_id"] = 0;
                 return RedirectToAction("Index", "Absences");
                 
             }
-            else if(loginmodel.UserName == "user" && loginmodel.Password == "user")
+            else if(Loginmodel.UserName == "user" && Loginmodel.Password == "user")
             {
                 TempData["admin"] = false;
                 TempData["User_id"] = 1;
@@ -83,9 +83,9 @@ namespace ContosoUniversity.Controllers
             }
             else
             {
-                /*HttpContext.Session.Set("UserName", loginmodel.UserName);*/
+                /*HttpContext.Session.Set("UserName", Loginmodel.UserName);*/
 
-                return RedirectToAction("Index", "login");
+                return RedirectToAction("Index", "Login");
             }
 
 
