@@ -25,6 +25,7 @@ else
 {
     @if ((bool)TempData["admin"] == true)
     {
+        <h4>Closed requests</h4>
         <table class="table">
             <thead>
                 <tr>
@@ -79,7 +80,7 @@ else
         </table>
         <br />
 
-
+        <h4>Open requests</h4>
         <table class="table">
             <thead>
                 <tr>
@@ -137,6 +138,7 @@ else
 
 <br />
 @if (TempData["User_id"] != null){
+    <h4>Your requests</h4>
     <table class="table">
         <thead>
             <tr>
