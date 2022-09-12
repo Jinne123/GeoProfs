@@ -30,7 +30,7 @@ namespace Geoprofs.Data
             }
             var Logins = new Login[]
            {
-                new Login{UserName="admin@gmail.com",Password="test" }
+                new Login{UserName="admin@gmail.com",Password="test", Role = 1}
            };
             foreach (Login l in Logins)
             {

@@ -15,5 +15,6 @@ namespace Geoprofs.Models
 
 
         public string LoginErrorMe { get; set; }
+        public int Role { get; set; }
     }
 }
