@@ -60,8 +60,31 @@ namespace Geoprofs.Controllers
         public async Task<IActionResult> Login(string UserName, string password)
 
         {
-            var Login = await _context.Logins.FirstOrDefaultAsync(m => m.UserName == UserName && m.Password == password);
-            return View(Login);
+            var Login = await _context.Logins.FirstOrDefaultAsync(m => m.UserName == UserName);
+            try
+            {
+                if (Login == null)
+                {
+                    throw new Exception();
+                }else
+                {
+                    if (Login.Password == password)
+                    {
+                        TempData["admin"] = true;
+                        TempData["User_id"] = 0;
+                        Console.WriteLine("test");
+                        return RedirectToAction("Index", "Absences");
+                    }
+                }
+                
+            } catch (Exception ex)
+            {
+
+            }
+                
+            return RedirectToAction("Index", "Login");
+
+
         }
 
         [HttpPost]
