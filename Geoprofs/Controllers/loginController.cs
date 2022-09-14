@@ -70,8 +70,17 @@ namespace Geoprofs.Controllers
                 {
                     if (Login.Password == password)
                     {
-                        TempData["admin"] = true;
-                        TempData["User_id"] = 0;
+                        if(Login.Role == 1)
+                        {
+                            TempData["admin"] = true;
+                            TempData["User_id"] = 1;
+                        }
+                        else
+                        {
+                            TempData["admin"] = false;
+                            TempData["User_id"] = 0;
+                        }
+                        
                         Console.WriteLine("test");
                         return RedirectToAction("Index", "Absences");
                     }
