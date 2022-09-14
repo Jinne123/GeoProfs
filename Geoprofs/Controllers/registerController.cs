@@ -42,7 +42,7 @@ namespace Geoprofs.Controllers
                 _context.Add(Login);
 
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Login");
             }
             return View(Login);
         }
