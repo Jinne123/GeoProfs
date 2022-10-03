@@ -34,17 +34,31 @@ namespace Geoprofs.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,UserName,Password")] Login Login)
+        public async Task<IActionResult> Create(string Username, string Password, string Password2)
         {
-            
-            if (ModelState.IsValid)
+            if (Password == Password2)
             {
+                int Role = 0;
+                Login Login = new Login(Username, Password);
+                Console.WriteLine(Login);
                 _context.Add(Login);
-
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index", "Login");
+                /*                if (ModelState.IsValid)
+                                {
+                                    
+
+                                    await _context.SaveChangesAsync();
+                                    return RedirectToAction("Index", "Login");
+                                }*/
+                return RedirectToAction("Index");
+                /*return RedirectToAction("Index");*/
             }
-            return View(Login);
+            else
+            {
+                return RedirectToAction("Index");
+            }
+
+            
         }
     }
 }
