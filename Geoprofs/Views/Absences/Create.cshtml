@@ -3,6 +3,10 @@
 @{
     ViewData["Title"] = "Create";
 }
+@{
+    TempData.Keep("admin");
+    TempData.Keep("User_id");
+}
 
 <h1>Create</h1>
 
@@ -14,7 +18,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="userId" class="control-label"></label>
-                <input asp-for="userId" class="form-control" />
+                <input asp-for="userId" class="form-control" value="@TempData["User_id"]" readonly/>
                 <span asp-validation-for="userId" class="text-danger"></span>
             </div>
             <div class="form-group">
