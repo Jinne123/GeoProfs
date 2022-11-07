@@ -16,6 +16,8 @@ namespace Geoprofs.Models
 
         public string? LoginErrorMe { get; set; }
         public int? Role { get; set; }
+        public int? team_id { get; set; }
+        public int? role_id {get; set; }
         public Login(string UserName, string Password)
         {
             this.UserName = UserName;

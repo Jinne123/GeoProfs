@@ -73,12 +73,18 @@ namespace Geoprofs.Controllers
                         if(Login.Role == 1)
                         {
                             TempData["admin"] = true;
-                            TempData["User_id"] = 1;
+                            Console.WriteLine(Login.ID);
+                            TempData["User_id"] = Login.ID;
+                            TempData["Role_id"] = Login.role_id;
+                          
                         }
                         else
                         {
                             TempData["admin"] = false;
-                            TempData["User_id"] = 0;
+                            Console.WriteLine(Login.ID);
+                            TempData["User_id"] = Login.ID;
+                            TempData["Role_id"] = Login.role_id;
+
                         }
                         
                         Console.WriteLine("test");
