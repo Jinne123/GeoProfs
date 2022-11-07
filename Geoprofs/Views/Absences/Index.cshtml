@@ -10,7 +10,7 @@
 <h1>Leave of absence</h1>
 <h1>@TempData["name"]</h1>
 
-@if (TempData["User_id"] != null)
+@if (TempData["User_id"] != null && TempData["User_id"] != "0")
 {
     <p>
         <a asp-action="Create">Create New</a>
@@ -165,6 +165,8 @@ else
             {
                 if ((int)TempData["User_id"] == item.userId)
                 {
+                    if (item.status == false)
+                    {
                         <tr>
                             <td>
                                 @Html.DisplayFor(modelItem => item.userId)
@@ -187,6 +189,7 @@ else
                                 <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
                             </td>
                         </tr>
+                        }
                 }
             }
         </tbody>
