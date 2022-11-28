@@ -150,6 +150,11 @@ namespace Geoprofs.Controllers
                 return View();
             }
         }
+        public ActionResult logout()
+        {
+            TempData["User_id"] = null;
+            return View();
+        }
 
         // GET: UserController/Delete/5
         public ActionResult Delete(int id)
