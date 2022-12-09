@@ -6,6 +6,7 @@
 @{
     TempData.Keep("admin");
     TempData.Keep("User_id");
+    TempData.Keep("Team_id");
 }
 <h1>Leave of absence</h1>
 <h1>@TempData["name"]</h1>
@@ -33,6 +34,9 @@ else
                         @Html.DisplayNameFor(model => model.userId)
                     </th>
                     <th>
+                        @Html.DisplayNameFor(model => model.Team_id)
+                    </th>
+                    <th>
                         @Html.DisplayNameFor(model => model.StartAbsence)
                     </th>
                     <th>
@@ -55,6 +59,9 @@ else
                         <tr>
                             <td>
                                 @Html.DisplayFor(modelItem => item.userId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Team_id)
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.StartAbsence)
@@ -88,6 +95,9 @@ else
                         @Html.DisplayNameFor(model => model.userId)
                     </th>
                     <th>
+                        @Html.DisplayNameFor(model => model.Team_id)
+                    </th>
+                    <th>
                         @Html.DisplayNameFor(model => model.StartAbsence)
                     </th>
                     <th>
@@ -110,6 +120,9 @@ else
                         <tr>
                             <td>
                                 @Html.DisplayFor(modelItem => item.userId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Team_id)
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.StartAbsence)
@@ -171,6 +184,9 @@ else
                                 @Html.DisplayFor(modelItem => item.userId)
                             </td>
                             <td>
+                                @Html.DisplayFor(modelItem => item.Team_id)
+                            </td>
+                            <td>
                                 @Html.DisplayFor(modelItem => item.StartAbsence)
                             </td>
                             <td>
@@ -201,6 +217,9 @@ else
                     <th>
                         @Html.DisplayNameFor(model => model.userId)
                     </th>
+                     <th>
+                        @Html.DisplayNameFor(model => model.Team_id)
+                    </th>
                     <th>
                         @Html.DisplayNameFor(model => model.StartAbsence)
                     </th>
@@ -224,6 +243,9 @@ else
                         <tr>
                             <td>
                                 @Html.DisplayFor(modelItem => item.userId)
+                            </td>
+                             <td>
+                                @Html.DisplayFor(modelItem => item.Team_id)
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.StartAbsence)
@@ -259,6 +281,9 @@ else
                 <th>
                     @Html.DisplayNameFor(model => model.userId)
                 </th>
+                 <th>
+                    @Html.DisplayNameFor(model => model.Team_id)
+                </th>
                 <th>
                     @Html.DisplayNameFor(model => model.StartAbsence)
                 </th>
@@ -282,6 +307,9 @@ else
                         <tr>
                             <td>
                                 @Html.DisplayFor(modelItem => item.userId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Team_id)
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.StartAbsence)

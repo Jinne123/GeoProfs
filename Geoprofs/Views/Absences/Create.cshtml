@@ -6,6 +6,7 @@
 @{
     TempData.Keep("admin");
     TempData.Keep("User_id");
+    TempData.Keep("Team_id");
 }
 
 <h1>Create</h1>
@@ -20,6 +21,11 @@
                 <label asp-for="userId" class="control-label"></label>
                 <input asp-for="userId" class="form-control" value="@TempData["User_id"]" readonly/>
                 <span asp-validation-for="userId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Team_id" class="control-label"></label>
+                <input asp-for="Team_id" class="form-control" value="@TempData["Team_id"]" readonly/>
+                <span asp-validation-for="Team_id" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="StartAbsence" class="control-label"></label>
