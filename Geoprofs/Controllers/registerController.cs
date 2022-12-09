@@ -50,7 +50,7 @@ namespace Geoprofs.Controllers
                                     await _context.SaveChangesAsync();
                                     return RedirectToAction("Index", "Login");
                                 }*/
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Absences");
                 /*return RedirectToAction("Index");*/
             }
             else
