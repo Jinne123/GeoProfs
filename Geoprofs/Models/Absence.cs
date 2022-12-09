@@ -8,6 +8,7 @@ namespace Geoprofs.Models
     {
         public int id { get; set; }
         public int userId { get; set; }
+        public int Team_id { get; set; }
         public DateTime? StartAbsence { get; set; }
         public DateTime? StopAbsence { get; set; }
         public string reason { get; set; }

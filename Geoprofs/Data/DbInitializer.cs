@@ -64,8 +64,8 @@ namespace Geoprofs.Data
 
             var Absences = new Absence[]
             {
-                new Absence{userId=1, StartAbsence = new DateTime(2019, 1, 1), StopAbsence = new DateTime(2019, 1, 2), reason = "I'm sick", status = false},
-                new Absence{userId=1, StartAbsence = new DateTime(2019, 1, 1), StopAbsence = new DateTime(2019, 1, 2), reason = "I'm sick", status = false}
+                new Absence{userId=1, Team_id = 2 ,StartAbsence = new DateTime(2019, 1, 1), StopAbsence = new DateTime(2019, 1, 2), reason = "I'm sick", status = false},
+                new Absence{userId=1, Team_id = 1, StartAbsence = new DateTime(2019, 1, 1), StopAbsence = new DateTime(2019, 1, 2), reason = "I'm sick", status = false}
             };
             foreach (Absence ab in Absences)
 

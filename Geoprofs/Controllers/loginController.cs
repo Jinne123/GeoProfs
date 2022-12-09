@@ -76,7 +76,8 @@ namespace Geoprofs.Controllers
                             Console.WriteLine(Login.ID);
                             TempData["User_id"] = Login.ID;
                             TempData["Role_id"] = Login.role_id;
-                          
+                            TempData["Team_id"] = Login.team_id;
+
                         }
                         else
                         {
@@ -84,6 +85,7 @@ namespace Geoprofs.Controllers
                             Console.WriteLine(Login.ID);
                             TempData["User_id"] = Login.ID;
                             TempData["Role_id"] = Login.role_id;
+                            TempData["Team_id"] = Login.team_id;
 
                         }
                         

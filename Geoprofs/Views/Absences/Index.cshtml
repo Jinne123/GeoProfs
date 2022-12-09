@@ -6,7 +6,11 @@
 @{
     TempData.Keep("admin");
     TempData.Keep("User_id");
+
+    TempData.Keep("Team_id");
+
     TempData.Keep("Role_id");
+
 }
 <h1>Leave of absence</h1>
 <h1>@TempData["name"]</h1>
@@ -34,6 +38,9 @@ else
                         @Html.DisplayNameFor(model => model.userId)
                     </th>
                     <th>
+                        @Html.DisplayNameFor(model => model.Team_id)
+                    </th>
+                    <th>
                         @Html.DisplayNameFor(model => model.StartAbsence)
                     </th>
                     <th>
@@ -56,6 +63,9 @@ else
                         <tr>
                             <td>
                                 @Html.DisplayFor(modelItem => item.userId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Team_id)
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.StartAbsence)
@@ -89,6 +99,9 @@ else
                         @Html.DisplayNameFor(model => model.userId)
                     </th>
                     <th>
+                        @Html.DisplayNameFor(model => model.Team_id)
+                    </th>
+                    <th>
                         @Html.DisplayNameFor(model => model.StartAbsence)
                     </th>
                     <th>
@@ -111,6 +124,9 @@ else
                         <tr>
                             <td>
                                 @Html.DisplayFor(modelItem => item.userId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Team_id)
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.StartAbsence)
@@ -172,6 +188,9 @@ else
                                 @Html.DisplayFor(modelItem => item.userId)
                             </td>
                             <td>
+                                @Html.DisplayFor(modelItem => item.Team_id)
+                            </td>
+                            <td>
                                 @Html.DisplayFor(modelItem => item.StartAbsence)
                             </td>
                             <td>
@@ -202,6 +221,9 @@ else
                     <th>
                         @Html.DisplayNameFor(model => model.userId)
                     </th>
+                     <th>
+                        @Html.DisplayNameFor(model => model.Team_id)
+                    </th>
                     <th>
                         @Html.DisplayNameFor(model => model.StartAbsence)
                     </th>
@@ -225,6 +247,9 @@ else
                         <tr>
                             <td>
                                 @Html.DisplayFor(modelItem => item.userId)
+                            </td>
+                             <td>
+                                @Html.DisplayFor(modelItem => item.Team_id)
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.StartAbsence)
@@ -260,6 +285,9 @@ else
                 <th>
                     @Html.DisplayNameFor(model => model.userId)
                 </th>
+                 <th>
+                    @Html.DisplayNameFor(model => model.Team_id)
+                </th>
                 <th>
                     @Html.DisplayNameFor(model => model.StartAbsence)
                 </th>
@@ -286,6 +314,71 @@ else
                         <tr>
                             <td>
                                 @Html.DisplayFor(modelItem => item.userId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Team_id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.StartAbsence)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.StopAbsence)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.reason)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.status)
+                            </td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                            </td>
+                        </tr>
+                }
+            }
+        </tbody>
+    </table>
+    <br />
+}
+@if (TempData["Team_id"] != null){
+    <h4>Team requests</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.userId)
+                </th>
+                 <th>
+                    @Html.DisplayNameFor(model => model.Team_id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StartAbsence)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StopAbsence)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.reason)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.status)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                if ((int)TempData["Team_id"] == item.Team_id)
+                {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.userId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Team_id)
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.StartAbsence)
